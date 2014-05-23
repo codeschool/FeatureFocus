@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+Project.destroy_all
+
+owner = User.create!(email: 'owner@codeschool.com')
+
+project = owner.owned_projects.create!(title: 'Developer Career Path')
+message = project.messages.create!(title: 'Programming Languages')
+message.comments << Comment.create!(body: 'Ruby should be in there')
+message.comments << Comment.create!(body: 'JavaScript should be there too!')
+
