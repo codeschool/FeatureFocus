@@ -5,4 +5,12 @@
     Last updated <%= time_ago_in_words project.updated_at %> ago
   </div>
 
+  <div class="accesses">
+    <% project.users.each do |u| %>
+      <div class="avatar">
+        <span class="content"> <%= u.id %> </span>
+      </div>
+    <% end %>
+  </div>
+
 </article>

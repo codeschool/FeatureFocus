@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523192804) do
+ActiveRecord::Schema.define(version: 20140602200143) do
+
+  create_table "accesses", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accesses", ["project_id"], name: "index_accesses_on_project_id", using: :btree
+  add_index "accesses", ["user_id"], name: "index_accesses_on_user_id", using: :btree
 
   create_table "attachments", force: true do |t|
     t.string   "file_name"
