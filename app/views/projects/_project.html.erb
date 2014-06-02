@@ -1,2 +1,8 @@
-<dt><%= project.title %></dt>
-<dd><%= project.updated_at %></dd>
+<article>
+  <h2><%= project.title %></h2>
+
+  <div class="last-updated">
+    Last updated <%= time_ago_in_words project.updated_at %> ago
+  </div>
+
+</article>
