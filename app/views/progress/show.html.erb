@@ -1,0 +1,18 @@
+<h1>Progress</h1>
+
+
+<ul class='progress'>
+  <% @projects.each do |project| %>
+    <li>
+      <h3><%= project.title %></h3>
+      <ul>
+        <% project.recent_activity.each do |activity| %>
+          <li>
+            New comment on <a href='#'><%= activity.commentable.title %></a>
+            <div class='content'><%= activity.body %></div>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
