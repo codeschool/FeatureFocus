@@ -6,10 +6,15 @@
     <li>
       <h3><%= project.title %></h3>
       <ul>
-        <% project.recent_activity.each do |activity| %>
+        <% project.actions.each do |action| %>
           <li>
-            New comment on <a href='#'><%= activity.commentable.title %></a>
-            <div class='content'><%= activity.body %></div>
+
+            <div class='avatar'>
+              <span class='content'><%= action.user.id %></span>
+            </div>
+
+            <%= action.user.name %> <%= action.name %> a <%= action.target %> on <a href='#'><%= action.target_title %></a>
+            <div class='content'>Lorem Ipsum</div>
           </li>
         <% end %>
       </ul>

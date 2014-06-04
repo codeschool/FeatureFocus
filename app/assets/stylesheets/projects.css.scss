@@ -36,25 +36,24 @@ article {
 
 .accesses {
   margin-top: 90px;
-}
 
-.avatar {
-  display: inline-block;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  color: #fff;
-  line-height: 100px;
-  background: #76AC80;
+  .avatar {
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    line-height: 100px;
+    background: #76AC80;
 
-  .content {
-    float:left;
-    width:100%;
-    padding-top:50%;
-    line-height:1em;
-    margin-top:-0.5em;
-    text-align:center;
-    color:white;
+    .content {
+      float:left;
+      width:100%;
+      padding-top:50%;
+      line-height:1em;
+      margin-top:-0.5em;
+      text-align:center;
+      color:white;
+    }
   }
 }
-
