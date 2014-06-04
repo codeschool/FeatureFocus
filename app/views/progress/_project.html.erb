@@ -1,0 +1,8 @@
+<li>
+
+<h3><%= project.title %></h3>
+
+<ul>
+  <%= render partial: 'progress/actions', collection: project.actions.recent, as: :action %>
+</ul>
+

@@ -6,13 +6,15 @@ module Trackable
   end
 
   def add_action
-    name = (self.created_at == self.updated_at) ? 'created' : 'updated'
+    action_name = (self.created_at == self.updated_at) ? 'created' : 'updated'
 
     Action.create!(
       user_id: self.user.id,
-      name: name,
+      name: action_name,
+      body: body,
       target: self.class.to_s,
       target_id: self.id
     )
   end
 end
+

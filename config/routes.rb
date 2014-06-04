@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'projects/index'
+
+  resources :projects, only: [:index, :show]
+  resources :messages
+  resources :comments
+
   get 'progress' => 'progress#show'
 
-  resources :projects
   root to: 'projects#index'
 end

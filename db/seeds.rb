@@ -21,12 +21,17 @@ message.comments << Comment.new(body: 'JavaScript should be there too!',  user: 
 
 message.save!
 
+sleep 1
+
+#recent_comment = message.comments.last
+#recent_comment.update(body: 'JavaScript ES6 should be there too!')
+
 
 member3 = User.find_by!(email: "member-3@codeschool.com")
-project.todos.create!(title: 'Learn Ruby',  user: member3)
+project.todos.create!(body: 'Learn Ruby',  user: member3)
 
 member4 = User.find_by!(email: "member-4@codeschool.com")
-project.todos.create!(title: 'Learn Rails',  user: member4)
+project.todos.create!(body: 'Learn Rails',  user: member4)
 
 project = owner.owned_projects.create!(title: 'How to Cook')
 

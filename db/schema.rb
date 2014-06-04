@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604140759) do
+ActiveRecord::Schema.define(version: 20140604184252) do
 
   create_table "accesses", force: true do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140604140759) do
     t.integer  "target_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "body"
   end
 
   add_index "actions", ["user_id"], name: "index_actions_on_user_id", using: :btree
@@ -86,7 +87,7 @@ ActiveRecord::Schema.define(version: 20140604140759) do
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
 
   create_table "todos", force: true do |t|
-    t.string   "title"
+    t.text     "body"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
