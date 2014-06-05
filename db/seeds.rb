@@ -2,12 +2,12 @@ User.destroy_all
 Project.destroy_all
 Action.destroy_all
 
-owner = User.create!(email: 'owner@codeschool.com')
+owner = User.create!(name: 'Project Owner', email: 'owner@codeschool.com')
 
 project = owner.owned_projects.create!(title: 'Developer Career Path')
 
 (1..10).each do |i|
-  member = User.find_or_create_by!(email: "member-#{i}@codeschool.com")
+  member = User.find_or_create_by!(name: "Member #{i}", email: "member-#{i}@codeschool.com")
   project.users << member
 end
 
@@ -36,7 +36,7 @@ project.todos.create!(body: 'Learn Rails',  user: member4)
 project = owner.owned_projects.create!(title: 'How to Cook')
 
 (5..15).each do |i|
-  member = User.find_or_create_by!(email: "member-#{i}@codeschool.com")
+  member = User.find_or_create_by!(name: "Member #{i}", email: "member-#{i}@codeschool.com")
   project.users << member
 end
 

@@ -1,0 +1,14 @@
+<h1>Search Results</h1>
+
+<ul class='results'>
+  <% if @results.blank? %>
+    <li><i>No Results</i></li>
+  <% else %>
+    <% @results.each do |result| %>
+      <li>
+        <%= link_to result.try(:body) || result.try(:title), polymorphic_url(result) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+

@@ -1,4 +1,12 @@
-<h1>Projects</h1>
+<div class='row'>
+  <h1>Projects</h1>
+
+  <div class='search-box'>
+    <%= form_tag search_path, method: :get do %>
+      <%= text_field_tag 'keyword', nil, html: { placeholder: 'search' } %>
+    <% end %>
+  </div>
+</div>
 
 <div>
   <%= render @projects %>

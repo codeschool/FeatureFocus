@@ -25,6 +25,11 @@ article {
   width: 300px;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
 
+
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px; /* future proofing */
+
   .last-updated {
     font-size: 0.8em;
     color: #aa9c84;
@@ -54,6 +59,29 @@ article {
       margin-top:-0.5em;
       text-align:center;
       color:white;
+    }
+  }
+}
+
+div.row {
+  margin-bottom: 40px;
+
+  .search-box {
+    //position: relative;
+    //float: right;
+    //margin-top: -42px;
+
+
+    input[type=text] {
+      background: #fff url(https://d3dma7a8zw52bz.cloudfront.net/assets/icons/icon_search-7ecce355488cdee261b995a5792c687f.png) no-repeat 10px center;
+      padding: 8px 10px 8px 28px;
+      color: #444;
+      font-size: 15px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+      border: 1px solid #CCC;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px; /* future proofing */
     }
   }
 }

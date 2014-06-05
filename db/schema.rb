@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604184252) do
+ActiveRecord::Schema.define(version: 20140605183604) do
 
   create_table "accesses", force: true do |t|
     t.integer  "user_id"
@@ -35,18 +35,6 @@ ActiveRecord::Schema.define(version: 20140604184252) do
 
   add_index "actions", ["user_id"], name: "index_actions_on_user_id", using: :btree
 
-  create_table "attachments", force: true do |t|
-    t.string   "file_name"
-    t.string   "file_url"
-    t.integer  "project_id"
-    t.integer  "attachable_id"
-    t.string   "attachable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "attachments", ["project_id"], name: "index_attachments_on_project_id", using: :btree
-
   create_table "comments", force: true do |t|
     t.text     "body"
     t.integer  "commentable_id"
@@ -57,15 +45,6 @@ ActiveRecord::Schema.define(version: 20140604184252) do
   end
 
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
-  create_table "forwards", force: true do |t|
-    t.text     "body"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "forwards", ["project_id"], name: "index_forwards_on_project_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.string   "title"
@@ -101,6 +80,7 @@ ActiveRecord::Schema.define(version: 20140604184252) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end
