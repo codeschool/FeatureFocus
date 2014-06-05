@@ -10,8 +10,14 @@
     padding: 12px;
     font-weight: bold;
   }
+
   .content {
     font-weight: 300;
+
+    .created-at {
+      font-style: italic;
+      font-size: 0.8em;
+    }
   }
 
   ul li {

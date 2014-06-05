@@ -1,6 +1,15 @@
 <h1>Progress</h1>
 
 <ul class='progress'>
-  <%= render partial: 'progress/project', collection: @projects %>
+
+  <%= render partial: 'timeline_actions', collection: @timeline_actions, as: :ordered %>
+
 </ul>
 
+<script>
+  window.progressPage = 1;
+</script>
+
+<div class='actions'>
+  <%= button_to 'Load More', '/progress.js', method: :get, remote: true, id: '#btn-load-more' %>
+</div>

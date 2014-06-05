@@ -1,23 +1,15 @@
 class Action < ActiveRecord::Base
-
+  belongs_to :project
   belongs_to :user
 
-  scope :recent, -> { order(created_at: :desc) }
 
-  def target_title
-    parent = target_object
-    parent.body
-  end
+  scope :recent_for, ->(user){
+    joins(project: { accesses: :user }).where('accesses.user_id = ?', user.id).order(created_at: :desc)
+  }
 
-  def target_object
-    target.constantize.find(target_id)
-  end
-
-  def parent_object
-    if target_object.respond_to?(:commentable)
-      target_object.commentable
-    else
-      target_object.project
-    end
-  end
+  PER_PAGE = 5
+  scope :paginate, ->(page=0) {
+    page = (page.to_i || 0)
+    limit(PER_PAGE).offset(page * PER_PAGE)
+  }
 end

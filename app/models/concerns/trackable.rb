@@ -2,19 +2,16 @@ module Trackable
   extend ActiveSupport::Concern
 
   included do
-    after_save :add_action
+    after_save :track_action
   end
 
-  def add_action
-    action_name = (self.created_at == self.updated_at) ? 'created' : 'updated'
+  protected
+    def track_action
+      Action.create!(
+        project: project,
+        user: user,
+        target_model: self.class.to_s
+      )
+    end
 
-    Action.create!(
-      user_id: self.user.id,
-      name: action_name,
-      body: body,
-      target: self.class.to_s,
-      target_id: self.id
-    )
-  end
 end
-

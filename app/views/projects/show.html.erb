@@ -1,2 +1,13 @@
 <h1><%= @project.title %></h1>
 
+<ul class='messages'>
+  <h3>Messages</h3>
+  <%= render @project.messages %>
+</ul>
+
+<p>
+  <%= form_for([@project, Message.new]) do |f| %>
+    <%= render 'projects/message_form', f: f, accesses: @project.accesses %>
+  <% end %>
+</p>
+

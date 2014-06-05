@@ -1,0 +1,19 @@
+<legend>New Message</legend>
+
+<%= f.text_area :body, cols: 30, rows: 5 %>
+
+<div>
+  <h5>Notify the following members:</h5>
+   <ul>
+    <% accesses.each do |access| %>
+      <li>
+        <%= check_box_tag 'message[subscriber_ids][]', access.user.id %>
+        <%= access.user.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <%= f.submit :create %>
+</div>

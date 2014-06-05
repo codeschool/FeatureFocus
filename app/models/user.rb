@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :projects, through: :accesses
   has_many :actions
 
-  def name
-    email.split(/\@/).first.titleize
+  def initials
+    name.scan(/(\w).*\W(\w)/).join
   end
 end

@@ -1,10 +1,9 @@
 class CreateActions < ActiveRecord::Migration
   def change
     create_table :actions do |t|
+      t.references :project, index: true
       t.references :user, index: true
-      t.string :name
-      t.string :target
-      t.integer :target_id
+      t.string :target_model
 
       t.timestamps
     end

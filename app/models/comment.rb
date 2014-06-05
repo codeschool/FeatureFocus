@@ -1,10 +1,11 @@
 class Comment < ActiveRecord::Base
   include Trackable
 
-  belongs_to :commentable, polymorphic: true
+  belongs_to :message
   belongs_to :user
 
-  def title
-    commentable.title
-  end
+  delegate :project, to: :message
+
+  scope :recent, -> { order(created_at: :desc).limit(5) }
+
 end

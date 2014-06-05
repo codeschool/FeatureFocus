@@ -4,6 +4,6 @@ class Search
 
     Project.where('lower(title) LIKE ?', keyword_search) +
       Comment.where('lower(body) LIKE ?', keyword_search) +
-      Message.where('lower(title) LIKE :keyword OR lower(body) LIKE :keyword', { keyword: keyword_search })
+      Message.where('lower(body) LIKE ?', keyword_search)
   end
 end

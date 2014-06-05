@@ -1,0 +1,11 @@
+<li>
+  <h4><%= link_to message.body, message %></h4>
+  <h5 class='participants'>(<%= list_subscribers(message.subscribers) %>)</h5>
+
+  <ul class='comments'>
+    <h4>Comments</h4>
+    <% message.comments.each do |comment| %>
+      <li><%= comment.body %></li>
+    <% end %>
+  </ul>
+</li>

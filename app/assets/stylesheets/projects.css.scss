@@ -37,6 +37,7 @@ article {
 
   float: left;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .accesses {
@@ -84,4 +85,15 @@ div.row {
       border-radius: 3px; /* future proofing */
     }
   }
+}
+
+.new_message ul {
+  list-style-type: none;
+}
+
+.participants {
+  margin-top: -20px;
+  font-weight: 300;
+  text-line-through-mode: inherit;
+  font-style: italic;
 }
