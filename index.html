@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Threadless</title>
+  <link href='style.css' rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class='activity-stream'>
+    <a href='#' class='activity-item'><img src='world-icon.png'></a>
+    <div class="notifications-list">
+      <script id='notification-entries' type='text/x-handlebars-template'>
+        {{#each result}}
+          <li>
+            <p class='description'>
+              Get the deets on this design challenge: <a href='#'>{{linkDesc}}</a>
+            </p>
+            <a href='#'>
+              <img src='{{img}}'>
+            </a>
+          </li>
+        {{/each}}
+      </script>
+    </div>
+  </div>
+</body>
+
+<script src='jquery.js'></script>
+<script src='handlebars.js'></script>
+<script src='threadless.js'></script>
+<script>
+  $(document).ready(function(){
+    setTimeout(function(){
+      Threadless.start($);
+    }, 1000);
+  });
+</script>
+
+</html>

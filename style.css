@@ -1,0 +1,55 @@
+.activity-stream {
+  padding: 10px;
+  background: #CCC;
+  position: relative;
+  height: 40px;
+}
+
+.activity-stream p {
+  float: left;
+}
+
+.activity-stream .activity-item {
+  position: absolute;
+  margin-top: 10px;
+  right: 10px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.activity-item img {
+  width: 30%;
+  margin-top: -7px;
+}
+
+.activity-item img:hover {
+  -webkit-filter: brightness(11);
+}
+
+.activity-stream .notifications-list {
+  display: none;
+  background: white;
+  border: 1px solid #dadada;
+  padding: 5px 0;
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  width: 378px;
+}
+
+.notifications {
+  list-style-type: none;
+  font-size: 13px;
+  clear: left;
+}
+.notifications li:not(:last-child) {
+  margin-bottom: 4px;
+  border-bottom: solid 1px #e5e5e5;
+}
+
+li { width: 100% }
+
+p.description {
+  width: 230px;
+  float: left;
+}
