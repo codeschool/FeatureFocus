@@ -47,9 +47,44 @@
   border-bottom: solid 1px #e5e5e5;
 }
 
-li { width: 100% }
+li {
+  width: 100%;
+}
 
 p.description {
   width: 230px;
   float: left;
 }
+
+.design-image {
+  float: left;
+}
+
+.points ul {
+  list-style-type: none;
+  overflow: overlay;
+}
+
+.points ul li {
+  padding: 7px;
+  background: rgb(173, 202, 180);
+  width: 19px;
+  margin-bottom: 2px;
+  padding-left: 18px;
+  -webkit-border-radius: 8px;
+  height: 24px;
+  line-height: 25px;
+}
+.points ul li:hover {
+  background: rgb(206, 228, 211);
+}
+
+.points ul li a {
+  display: block;
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
