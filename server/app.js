@@ -36,6 +36,8 @@ designVotes.post(function(req, res) {
   return res.json(201, { score: req.param('score') });
 });
 
-app.listen(3000);
+app.listen(3000, function(){
+  console.log('Server listening...\n');
+});
 
 
