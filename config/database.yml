@@ -5,8 +5,9 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
+  adapter: postgis
   host: localhost
+  schema_search_path: 'public, postgis'
 
 development:
   <<: *default

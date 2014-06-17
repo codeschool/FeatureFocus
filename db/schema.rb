@@ -11,16 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616194607) do
+ActiveRecord::Schema.define(version: 20140617172032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "deals", force: true do |t|
     t.string   "title"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vendor_id"
+  end
+
+  add_index "deals", ["vendor_id"], :name => "index_deals_on_vendor_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "address"
+    t.spatial  "latlon",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendors", force: true do |t|
+    t.string   "name"
+    t.spatial  "latlon",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "address"
+    t.string   "category"
   end
 
 end
