@@ -10,5 +10,12 @@
   <%= @deal.description %>
 </p>
 
-<%= link_to 'Edit', edit_deal_path(@deal) %> |
-<%= link_to 'Back', deals_path %>
+<p>
+  <h3>Tell your friends!</h3>
+  <%= form_for([@deal, Referral.new]) do |f| %>
+    <%= f.text_field :referee_email %>
+    </br>
+    <%= f.submit :send %>
+  <% end %>
+</p>
+

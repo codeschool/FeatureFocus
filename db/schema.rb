@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617172032) do
+ActiveRecord::Schema.define(version: 20140617202730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 20140617172032) do
   end
 
   add_index "deals", ["vendor_id"], :name => "index_deals_on_vendor_id"
+
+  create_table "referrals", force: true do |t|
+    t.integer  "deal_id"
+    t.integer  "referrer_id"
+    t.string   "referee_email"
+    t.text     "token"
+    t.datetime "consumed_at"
+    t.datetime "collected_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "referrals", ["deal_id"], :name => "index_referrals_on_deal_id"
+  add_index "referrals", ["referrer_id"], :name => "index_referrals_on_referrer_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

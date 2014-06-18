@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
       <th colspan="3">Distance</th>
     </tr>
   </thead>
@@ -12,8 +11,7 @@
   <tbody>
     <% @deals.each do |deal| %>
       <tr>
-        <td><%= deal.title %> from <strong><%= deal.vendor.name %><strong></td>
-        <td><%= deal.description %></td>
+        <td><%= link_to deal.title, deal %> from <strong><%= deal.vendor.name %><strong></td>
         <td><%= calculate_distance(deal.vendor.latlon, current_user.latlon) %> miles</td>
       </tr>
     <% end %>
