@@ -1,20 +1,27 @@
 <h2>Deals you might like,</h2>
 
-<dl>
-  <% @deals.each_with_index do |deal, i| %>
-    <dt class='title'>
-      <%= deal.title %>
-    </dt>
 
-    <dd class='vendor'>
-      from <%= deal.vendor.name %>
-    </dd>
+<div class='grid'>
+  <dl class='deals'>
+    <% @deals.each_with_index do |deal, i| %>
+      <dt class='title'>
+        <%= deal.title %>
+      </dt>
 
-    <dd class='last-child'>
-      <% if i.zero? then %><span>only</span><% end %>
-      <%= pluralize calculate_distance(deal.vendor.latlon, current_user.latlon), 'mile' %>
-      from you
-    </dd>
-  <% end %>
-</dl>
+      <dd class='vendor'>
+        from <%= deal.vendor.name %>
+      </dd>
+
+      <dd class='last-child'>
+        <% if i.zero? then %><span>only</span><% end %>
+        <%= pluralize calculate_distance(deal.vendor.latlon, current_user.latlon), 'mile' %>
+        from you
+      </dd>
+    <% end %>
+  </dl>
+
+  <div class='deal-preview'>
+    <p>Select a deal to learn more</p>
+  </div>
+</div>
 

@@ -5,6 +5,6 @@ class Deal < ActiveRecord::Base
 
   scope :near, ->(user) {
     joins(:vendor).
-      order("ST_Distance(vendors.latlon, ST_GeomFromText('#{user.latlon}'))")
+      order("ST_Distance(vendors.latlon, '#{user.latlon}') ASC")
   }
 end

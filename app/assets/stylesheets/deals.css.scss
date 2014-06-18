@@ -1,6 +1,9 @@
 // Place all the styles related to the Deals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'grid';
+
 body {
   padding: 30px;
 }
@@ -11,28 +14,28 @@ h2 {
   margin-bottom: 25px;
 }
 
-dl {
+.deals {
+  @extend .grid__col;
+  @extend .grid__col--5-of-12;
+
   font-size: 1.2em;
+
+  .title {
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  .vendor {
+    font-style: italic;
+    margin-left: 0.1em;
+  }
+  .last-child {
+    margin-bottom: 35px;
+    margin-left: 0.1em;
+    font-size: 0.8em;
+  }
 }
 
-.last-child {
-  margin-bottom: 35px;
-  margin-left: 0.1em;
-  font-size: 0.8em;
+.deal-preview {
+  @extend .grid__col;
+  @extend .grid__col--7-of-12;
 }
-
-.title {
-  font-size: 1.4em;
-  font-weight: bold;
-}
-
-.vendor {
-  font-style: italic;
-  margin-left: 0.1em;
-}
-
-.call-to-action {
-  margin-left: 0.1em;
-  font-size: 1.2em;
-}
-
