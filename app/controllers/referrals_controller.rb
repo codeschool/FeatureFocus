@@ -1,8 +1,11 @@
 class ReferralsController < ApplicationController
   def create
     deal = Deal.find(params[:deal_id])
-    deal.referrals.create!(referral_params)
-    redirect_to deal
+    referral = deal.referrals.create!(referral_params)
+
+    ReferralNotificationJob.async_perform(referral)
+
+    redirect_to deals_path, alert: 'Referral sent!'
   end
 
   private

@@ -9,14 +9,16 @@ body {
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 2.0em;
   font-weight: normal;
   margin-bottom: 25px;
+  margin-left: 2em;
 }
 
 .deals {
   @extend .grid__col;
-  @extend .grid__col--5-of-12;
+  @extend .grid__col--4-of-12;
+  @extend .grid__col--centered;
 
   font-size: 1.2em;
 
@@ -28,14 +30,20 @@ h2 {
     font-style: italic;
     margin-left: 0.1em;
   }
-  .last-child {
+  .distance, .referral {
     margin-bottom: 35px;
     margin-left: 0.1em;
     font-size: 0.8em;
   }
 }
 
-.deal-preview {
+.alert {
   @extend .grid__col;
-  @extend .grid__col--7-of-12;
+  @extend .grid__col--5-of-12;
+  @extend .grid__col--centered;
+
+  text-align: center;
+  font-size: 1.3em;
+  padding: 20px;
+  background: #5AAC7B;
 }

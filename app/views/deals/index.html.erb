@@ -1,5 +1,8 @@
-<h2>Deals you might like,</h2>
+<% if alert %>
+  <p class='alert'><%= alert %></p>
+<% end %>
 
+<h2>Deals you might like,</h2>
 
 <div class='grid'>
   <dl class='deals'>
@@ -12,16 +15,22 @@
         from <%= deal.vendor.name %>
       </dd>
 
-      <dd class='last-child'>
+      <dd class='distance'>
         <% if i.zero? then %><span>only</span><% end %>
         <%= pluralize calculate_distance(deal.vendor.latlon, current_user.latlon), 'mile' %>
         from you
+        </br>
       </dd>
+
+      <dd class='referral'>
+      <%= form_for([deal, Referral.new]) do |f| %>
+        <legend>Tell a friend!</legend>
+        <%= f.text_field :referee_email %>
+        <%= f.submit :send %>
+      <% end %>
+      </dd>
+
     <% end %>
   </dl>
-
-  <div class='deal-preview'>
-    <p>Select a deal to learn more</p>
-  </div>
 </div>
 
