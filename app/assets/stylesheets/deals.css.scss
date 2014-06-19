@@ -16,6 +16,10 @@ body {
   -webkit-transform: rotate(-30.5deg);
   margin-top: 58px;
   position: absolute;
+
+  img {
+    width: 30%;
+  }
 }
 
 .slogan {
@@ -68,17 +72,23 @@ h2 {
   }
 }
 
-.alert {
+.referrer-info {
   @extend .grid__col;
-  @extend .grid__col--5-of-12;
-  @extend .grid__col--centered;
+  @extend .grid__col--12-of-12;
 
-  text-align: center;
-  font-size: 1.3em;
-  padding: 20px;
-  background: #5AAC7B;
-}
-.purchase{
-  background-color: #5AAC7B;
-}
+  text-align: right;
 
+  span {
+    background: #96BA5A;
+    padding: 15px;
+    display: inline-block;
+  }
+}
+.referral {
+  margin-bottom: 60px;
+  font-size: 0.8em;
+
+  input {
+    font-size: 1.3em;
+  }
+}

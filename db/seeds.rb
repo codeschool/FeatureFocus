@@ -1,7 +1,6 @@
 User.destroy_all
 Deal.destroy_all
 Vendor.destroy_all
-Referral.destroy_all
 
 v1 = Vendor.create_with_coordinates!(name: 'Abuelo',
                                      address: '2431 West Osceola Pkwy, Kissimmee, FL 34741',
@@ -31,17 +30,8 @@ taco = v3.deals.create!(title: '$1 Tacos',
                         ends_at: 160.minutes.from_now)
 
 
-current = User.create!(email: 'gregg@codeschool.com', latlon: 'POINT(-81.368804 28.538042)')
+current = User.create!(name: 'Gregg', email: 'Gregg@codeschool.com', latlon: nil)
 
-User.create!(email: 'carlos@codeschool.com', latlon: 'POINT(-81.368804 28.538042)')
-User.create!(email: 'jon@codeschool.com', latlon: 'POINT(-81.368804 28.538042)')
-
-friend1 = User.create!(email: 'friend-1@bar.com')
-friend2 = User.create!(email: 'friend-2@bar.com')
-
-# Referrals
-#
-#
-queso.referrals.create!(referrer: current, referee_email: 'some-friend@bar.com')
-taco.referrals.create!(referrer: current, referee_email: friend1.email)
+User.create!(name: 'Carlos', email: 'carlos@codeschool.com')
+User.create!(name: 'Jon', email: 'jon@codeschool.com')
 

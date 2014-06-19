@@ -1,41 +1,40 @@
-<% if alert %>
-  <p class='alert'><%= alert %></p>
-<% end %>
-
-<h2 class='logo'><img width='30%' height='30%' src="http://openclipart.org/image/800px/svg_to_png/188960/1385029480.png"></h2>
+<h2 class='logo'>
+  <%= image_tag "http://openclipart.org/image/800px/svg_to_png/188960/1385029480.png" %>
+</h2>
 
 <h2 class='slogan'>Deals para usted</h2>
 
 <div class='grid'>
+  <%= render 'shared/side' %>
+</div>
+
+<div class='grid'>
   <dl class='deals'>
+
+    <% if current_user %>
+      <dt class='referral'>
+        <span>Refer a friend for a special discount:</span>
+        </br>
+        <input type='text' value='http://localhost:3000/referrals/<%= current_user.referral_token %>' />
+      </dt>
+    <% end %>
 
     <%= render @deals %>
 
   </dl>
 </div>
 
-<%# unless has_coordinates? %>
+<% unless has_coordinates? %>
   <script>
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        if(hasLocation()) return false;
-
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
-
-        setLocation();
 
         $.post('session_coordinates', { latitude: latitude, longitude: longitude }, function(){
           location.reload();
         })
       });
     }
-
-    function setLocation(){
-      return $.cookie('hasLocation', true, { expires: 7 });
-    }
-    function hasLocation(){
-      return ($.cookie('hasLocation') !== undefined);
-    }
   </script>
-<%# end %>
+<% end %>

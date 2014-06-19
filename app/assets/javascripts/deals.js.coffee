@@ -1,2 +1,3 @@
 $ ->
-  $('.simple-timer').startTimer()
+  $('.simple-timer').startTimer
+    onComplete: -> location.reload()
