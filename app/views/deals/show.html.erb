@@ -1,0 +1,22 @@
+<div class='grid'>
+  <div class='deals'>
+    <h2><%= @deal.title %></h2>
+
+    <p>from <%= @deal.vendor.name %> for <%= number_to_currency @deal.price %></p>
+
+    <p>
+      <%= form_for(deal_purchases_path(@deal)) do |f| %>
+        <%= hidden_field_tag :referral_id, @referral_id %>
+        <%= f.submit :purchase, class: 'btn btn--s btn--blue' %>
+      <% end %>
+    </p>
+
+    <p class='referral'>
+      <%= form_for([@deal, Referral.new]) do |f| %>
+        <legend>Tell a friend!</legend>
+        <%= f.text_field :referee_email %>
+        <%= f.submit :send, class: 'btn btn--s btn--gray btn-purchase' %>
+      <% end %>
+    </p>
+  </div>
+</div>

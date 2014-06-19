@@ -1,0 +1,17 @@
+.container {
+  font-size: 100pt;
+  text-align: center;
+}
+
+.hours {
+  float: left;
+}
+.minutes {
+  float: left;
+}
+.seconds {
+  float: left;
+}
+.clearDiv {
+  clear: both;
+}

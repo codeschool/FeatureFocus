@@ -6,19 +6,42 @@
 
 body {
   padding: 30px;
+  background-color: #84B154;
+}
+
+.logo {
+  margin-top: -33px;
+  width: 90%;
+  z-index: -2;
+  -webkit-transform: rotate(-30.5deg);
+  margin-top: 58px;
+  position: absolute;
+}
+
+.slogan {
+  color: white;
+  font-size: 47px;
+  z-index: -1;
+  -webkit-transform: rotate(-30.5deg);
+  margin-top: 58px;
+  position: absolute;
 }
 
 h2 {
-  font-size: 2.0em;
+  font-size: 1.3em;
   font-weight: normal;
   margin-bottom: 25px;
-  margin-left: 2em;
+  margin-left: 1.0em;
+  font-family: fantasy;
+
 }
 
 .deals {
   @extend .grid__col;
   @extend .grid__col--4-of-12;
   @extend .grid__col--centered;
+
+  z-index: 1;
 
   font-size: 1.2em;
 
@@ -30,10 +53,18 @@ h2 {
     font-style: italic;
     margin-left: 0.1em;
   }
-  .distance, .referral {
-    margin-bottom: 35px;
+  .distance, .referral, .duration {
     margin-left: 0.1em;
     font-size: 0.8em;
+  }
+  .last-child {
+    margin-bottom: 35px;
+  }
+  .duration {
+    width: 53%;
+  }
+  .simple-timer {
+    float: right;
   }
 }
 
@@ -47,3 +78,7 @@ h2 {
   padding: 20px;
   background: #5AAC7B;
 }
+.purchase{
+  background-color: #5AAC7B;
+}
+

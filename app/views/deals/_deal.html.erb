@@ -1,0 +1,19 @@
+<dt class='title'>
+  <%= link_to deal.title, deal %>
+</dt>
+
+<dd class='vendor'>
+  from <%= deal.vendor.name %> for <%= number_to_currency deal.price %>
+</dd>
+
+<dd class='distance'>
+  <% if has_coordinates? %>
+    <% if deal_counter.zero? then %><span>Only</span><% end %>
+    <%= pluralize calculate_distance(deal.vendor.latlon, session_coordinates), 'mile' %>
+    from you
+  <% end %>
+</dd>
+
+<dd class='duration last-child'>
+ Ends in <span class='simple-timer' data-seconds-left=<%= deal.seconds_left %>></span>
+</dd>

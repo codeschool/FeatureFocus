@@ -11,5 +11,6 @@
  * file per style scope.
  *
  *= require normalize
+ *= require btns
  *= require_tree .
  */

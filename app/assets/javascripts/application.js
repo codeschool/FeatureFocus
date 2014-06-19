@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.simple.timer
+//= require jquery.cookie
 //= require turbolinks
 //= require_tree .

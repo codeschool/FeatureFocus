@@ -4,7 +4,7 @@ class DealsController < ApplicationController
   # GET /deals
   # GET /deals.json
   def index
-    @deals = Deal.near(current_user)
+    @deals = Deal.active.near(session_coordinates)
   end
 
   # GET /deals/1
