@@ -20,8 +20,14 @@ var Threadless = {
       var designId = target.closest('ul').data('design-id');
       var score = target.closest('li').find('a').text();
 
-      $.post('http://localhost:3001/designs/' + designId + '/votes', { score: score },
-             voteCast);
+       $.ajax({
+         type: 'POST',
+         contentType: 'application/json',
+         dataType: 'json',
+
+         url: 'http://localhost:3001/designs/' + designId + '/votes',
+         data: JSON.stringify({ score: score })
+       }, voteCast);
     });
 
     function voteCast() {
