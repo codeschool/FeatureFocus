@@ -14,6 +14,8 @@ var Threadless = {
     $.get('http://localhost:3001/notifications', loadNotifications);
 
     $('.points').on('click', 'li', function(e){
+      e.preventDefault();
+
       var target = $(e.target);
       var designId = target.closest('ul').data('design-id');
       var score = target.closest('li').find('a').text();
