@@ -10,6 +10,8 @@
   <div class='activity-stream'>
     <a href='#' class='activity-item'><img src='world-icon.png'></a>
     <div class="notifications-list">
+
+
       <script id='notification-entries' type='text/x-handlebars-template'>
         {{#each result}}
           <li>
@@ -22,6 +24,8 @@
           </li>
         {{/each}}
       </script>
+
+
     </div>
   </div>
 
@@ -66,9 +70,7 @@
 <script src='threadless.js'></script>
 <script>
   $(document).ready(function(){
-    setTimeout(function(){
       Threadless.start($);
-    }, 1000);
   });
 </script>
 
