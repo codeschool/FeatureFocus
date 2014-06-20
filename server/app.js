@@ -1,16 +1,27 @@
 var app = require('express')();
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.set('Access-Control-Allow-Origin', '*');
-  res.set('Access-Control-Allow-Methods', 'HEAD, OPTIONS, GET, POST, PUT, DELETE');
+  res.set('Access-Control-Allow-Methods', 'POST, DELETE');
 
-  res.set('Access-Control-Allow-Headers', 'Authorization, Content-Type');
-  res.set('Access-Control-Max-Age', 1728000);
+  /*
+   *  According to http://www.w3.org/TR/cors/#preflight-request
+   *  "If a header field name is a _simple header_ and is not Content-Type, it is not required to be listed."
+   *  This is why the 'Accept' header we are sending from the client side does not need to be listed.
+   */
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+  /*
+   * Might want to cache this to prevent unnecessary calls.
+   */
+  //res.set('Access-Control-Max-Age', 1728000);
+
   next();
 });
+
 
 app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);
