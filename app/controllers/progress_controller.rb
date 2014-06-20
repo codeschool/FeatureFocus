@@ -11,6 +11,9 @@ class ProgressController < ApplicationController
 
 
   private
+    #
+    # Groups actions into projects.
+    #
     def timeline_format(actions)
       ordered = []
 
