@@ -26,12 +26,13 @@ var Threadless = {
          dataType: 'json',
 
          url: 'http://localhost:3001/designs/' + designId + '/votes',
-         data: JSON.stringify({ score: score })
-       }, voteCast);
+         data: JSON.stringify({ score: score }),
+         complete: voteCast
+       });
     });
 
     function voteCast() {
-      console.log('done!')
+      console.log('Vote is cast!')
     }
   }
 };
