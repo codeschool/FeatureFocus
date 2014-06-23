@@ -5,7 +5,13 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.set('Access-Control-Allow-Origin', '*');
-  res.set('Access-Control-Allow-Methods', 'POST, DELETE');
+
+  /*
+   * Does not need to list POST because it is one of the _simple methods_
+   * as listed on the spec. See http://www.w3.org/TR/cors/#resource-preflight-requests
+   *
+   * res.set('Access-Control-Allow-Methods', 'PUT'); // Any methods other than GET, HEAD and POST.
+   */
 
   /*
    *  According to http://www.w3.org/TR/cors/#preflight-request
@@ -18,6 +24,8 @@ app.use(function(req, res, next) {
    * Might want to cache this to prevent unnecessary calls.
    */
   //res.set('Access-Control-Max-Age', 1728000);
+  //
+  if ('OPTIONS' == req.method) return res.send(200);
 
   next();
 });
