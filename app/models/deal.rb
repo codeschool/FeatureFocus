@@ -8,10 +8,10 @@ class Deal < ActiveRecord::Base
 
     # longitude comes first for PostGIS
     lon, lat = coordinates.split(',').reverse
-    point = 'POINT(%s %s)' % [lon, lat]
+    user_point = 'POINT(%s %s)' % [lon, lat]
 
     joins(:vendor).
-      order("ST_Distance(vendors.latlon, '#{point}') ASC")
+      order("ST_Distance(vendors.latlon, '#{user_point}') ASC")
   }
 
   scope :active, ->{ where('ends_at > ?', Time.now) }
