@@ -4,7 +4,8 @@ class Action < ActiveRecord::Base
 
 
   scope :recent_for, ->(user){
-    joins(project: { accesses: :user }).where('accesses.user_id = ?', user.id).order(created_at: :desc)
+    joins(project: :accesses).
+      where('accesses.user_id = ?', user.id).order(created_at: :desc)
   }
 
   PER_PAGE = 5
