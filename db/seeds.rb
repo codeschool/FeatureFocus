@@ -84,11 +84,31 @@ travel_to(3.days.ago) do
     personal_finance.users << member
   end
 
+  personal_finance.users << User.find_by(email: "member-5@codeschool.com")
+
+
   message = personal_finance.messages.create!(body: 'Rent or Purchase ?', user: User.last)
   message.comments << Comment.new(body: 'Definitely Rent',  user: member1)
   message.comments << Comment.new(body: 'Really it depends.',  user: member2)
 
   message.save!
+
+  ############
+  # Project 4 - current user does not have access to this project.
+  ############
+  world_cup = owner.owned_projects.create!(title: 'World Cup 2014')
+
+  (15..25).each do |i|
+    member = User.find_or_create_by!(email: "member-#{i}@codeschool.com").tap do |u|
+      u.name = name.call
+      u.save!
+    end
+
+    world_cup.users << member
+  end
+
+  message = world_cup.messages.create!(body: 'Team Rankings Website', user: User.last)
+  message.comments << Comment.new(body: 'This should be live updated using JavaScript.',  user: User.last)
 end
 
 

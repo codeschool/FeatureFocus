@@ -12,5 +12,9 @@ class Project < ActiveRecord::Base
 
   scope :recent, -> { order(created_at: :desc) }
 
+  scope :all_for, ->(user){
+    joins(:accesses).where(accesses: { user_id: user.id })
+  }
+
 end
 

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all # TODO: change this to user access.
+    @projects = Project.all_for(current_user)
   end
 
   def show
