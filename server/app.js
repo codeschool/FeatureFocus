@@ -56,7 +56,7 @@ designVotes.post(function(req, res) {
 });
 
 app.listen(3001, function(){
-  console.log('Server listening...\n');
+  console.log('Server listening on port 3001\n');
 });
 
 
