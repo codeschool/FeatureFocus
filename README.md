@@ -9,3 +9,8 @@ This app aims to replicate some of the features from Basecamp.
 * Search
 * Email Notifications
 
+## Setup
+
+* run `bundle`
+* run `rake db:setup`
+    * This will also load seed data under **db/seeds.rb**
