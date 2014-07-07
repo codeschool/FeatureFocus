@@ -2,6 +2,6 @@ class SessionCoordinatesController < ApplicationController
   def create
     coordinates = "%s,%s" % [params[:latitude], params[:longitude]]
     session[:coordinates] = coordinates
-    head 200
+    @deals = Deal.active.near(session_coordinates)
   end
 end

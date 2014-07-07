@@ -19,7 +19,9 @@
       </dt>
     <% end %>
 
-    <%= render @deals %>
+    <div id="deals">
+      <%= render @deals %>
+    </div>
 
   </dl>
 </div>
@@ -31,9 +33,7 @@
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        $.post('session_coordinates', { latitude: latitude, longitude: longitude }, function(){
-          location.reload();
-        })
+        $.post('session_coordinates', { latitude: latitude, longitude: longitude }, function(){})
       });
     }
   </script>
