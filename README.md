@@ -2,7 +2,7 @@
 
 This app aims to replicate some features from Threadless.
 
-TODO: add image.
+![](https://raw.githubusercontent.com/codeschool/FeatureFocus/threadless/docs/threadless.png)
 
 * client-side templating loading data from API.
 * client-side JS posting to API
