@@ -1,16 +1,40 @@
 <h1>Progress</h1>
 
 <ul class='progress'>
-
-  <%= render partial: 'timeline_actions', collection: @timeline_actions, as: :ordered %>
-
+  <%= render @actions %>
 </ul>
 
-<script>
-  window.progressPage = 1;
-</script>
-
 <div class='actions'>
-  <%= button_to 'Load More', '/progress.js', method: :get,
-    remote: true, id: '#btn-load-more' %>
+  <%= button_to 'Load more', '/progress.js', method: :get, data: { behavior: 'load_more'} %>
 </div>
+
+<script>
+  $(function(){
+    updateProjectSections();
+  })
+
+  function updateProjectSections(offsetElement){
+    var previousProjectTitle = null;
+    var actionsLi = null;
+
+    if(offsetElement){
+      actionsLi = offsetElement.nextAll()
+    }else{
+      actionsLi = $('.progress li');
+    }
+
+    for(var i=0; i < actionsLi.length; i++){
+      currentAction = $(actionsLi[i]);
+      currentProjectTitle = currentAction.data('project-title');
+
+      if(previousProjectTitle == null){
+        currentAction.prepend('<h3>' + currentProjectTitle + '</h3>');
+      }
+
+      if(previousProjectTitle !== null && previousProjectTitle !== currentProjectTitle){
+        currentAction.prepend('<h3>' + currentProjectTitle + '</h3>');
+      }
+      previousProjectTitle = currentProjectTitle;
+    }
+  }
+</script>

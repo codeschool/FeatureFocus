@@ -1,0 +1,12 @@
+<% cache action do  %>
+  <li data-project-title='<%= action.project.title %>'>
+    <div class='avatar'>
+      <span class='content'><%= action.user.initials %></span>
+    </div>
+    <%= action.user.name %> left a
+    <%= action.trackable.class %> on <%= link_to action.project.title, project_path(action.project) %>
+    <div class='content'>
+      <span class='created-at'>on <%= action.created_at.strftime('%m/%d/%Y, %l:%M%p') %></span>
+    </div>
+  </li>
+<% end %>

@@ -2,6 +2,7 @@ module Trackable
   extend ActiveSupport::Concern
 
   included do
+    has_many :actions, as: :trackable
     after_save :track_action
   end
 
@@ -10,8 +11,7 @@ module Trackable
       Action.create!(
         project: project,
         user: user,
-        target_model: self.class.to_s
+        trackable: self
       )
     end
-
 end

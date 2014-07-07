@@ -6,8 +6,5 @@
 </ul>
 
 <p>
-  <%= form_for([@project, Message.new]) do |f| %>
-    <%= render 'projects/message_form', f: f, accesses: @project.accesses %>
-  <% end %>
+  <%= render 'messages/form', project: @project %>
 </p>
-

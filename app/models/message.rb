@@ -7,4 +7,6 @@ class Message < ActiveRecord::Base
 
   has_many :message_subscriptions, dependent: :destroy
   has_many :subscribers, through: :message_subscriptions
+
+  has_many :actions, as: :trackable
 end

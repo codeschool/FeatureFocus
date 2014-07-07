@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616154707) do
+ActiveRecord::Schema.define(version: 20140707163507) do
 
   create_table "accesses", force: true do |t|
     t.integer  "user_id"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20140616154707) do
   create_table "actions", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.string   "target_model"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "trackable_type"
+    t.integer  "trackable_id"
   end
 
   add_index "actions", ["project_id"], name: "index_actions_on_project_id", using: :btree
