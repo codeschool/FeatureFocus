@@ -27,11 +27,7 @@
       currentAction = $(actionsLi[i]);
       currentProjectTitle = currentAction.data('project-title');
 
-      if(previousProjectTitle == null){
-        currentAction.prepend('<h3>' + currentProjectTitle + '</h3>');
-      }
-
-      if(previousProjectTitle !== null && previousProjectTitle !== currentProjectTitle){
+      if(previousProjectTitle === null || (previousProjectTitle !== null && previousProjectTitle !== currentProjectTitle)){
         currentAction.prepend('<h3>' + currentProjectTitle + '</h3>');
       }
       previousProjectTitle = currentProjectTitle;
