@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   protected
     def set_token
       return if self.referral_token.present?
-      self.referral_token = UUID.new.generate(:compact)
+      self.referral_token = SecureRandom.uuid.gsub(/\-/, '')
     end
 end
