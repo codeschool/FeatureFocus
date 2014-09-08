@@ -132,8 +132,18 @@ travel_to(1.day.ago) do
 
   member1 = User.find_by!(email: "member-1@codeschool.com")
   message.comments << Comment.new(body: 'As long as you do not overheat them...',  user: member1)
+  message.comments << Comment.new(body: 'As long as you do not overheat them...',  user: member1)
+  message.comments << Comment.new(body: 'As long as you do not overheat them...',  user: member1)
+  message.comments << Comment.new(body: 'As long as you do not overheat them...',  user: member1)
+  message.comments << Comment.new(body: 'As long as you do not overheat them...',  user: member1)
+  message.comments << Comment.new(body: 'As long as you do not overheat them...',  user: member1)
 
   member2 = User.find_by!(email: "member-2@codeschool.com")
+  message.comments << Comment.new(body: 'They are easy!',  user: member2)
+  message.comments << Comment.new(body: 'They are easy!',  user: member2)
+  message.comments << Comment.new(body: 'They are easy!',  user: member2)
+  message.comments << Comment.new(body: 'They are easy!',  user: member2)
+  message.comments << Comment.new(body: 'They are easy!',  user: member2)
   message.comments << Comment.new(body: 'They are easy!',  user: member2)
 
   message.save!

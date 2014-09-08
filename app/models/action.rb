@@ -8,9 +8,9 @@ class Action < ActiveRecord::Base
       where('accesses.user_id = ?', user.id).order(id: :desc)
   }
 
-  PER_PAGE = 5
-  scope :paginate, ->(page=0) {
-    page = (page.to_i || 0)
-    limit(PER_PAGE).offset(page * PER_PAGE)
+  PER_PAGE = 10
+  scope :paginate, ->(current_page=1) {
+    current_page = (current_page.to_i || 1)
+    page(current_page).per(PER_PAGE)
   }
 end

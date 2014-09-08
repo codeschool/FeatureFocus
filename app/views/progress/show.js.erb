@@ -1,3 +1,7 @@
 elementOffset = $('.progress li:last-child')
 $('.progress').append("<%=j render @actions %>")
 updateProjectSections(elementOffset)
+
+<% unless @actions.next_page %>
+  $('.loading').remove()
+<% end %>

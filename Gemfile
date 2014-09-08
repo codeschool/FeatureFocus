@@ -40,4 +40,4 @@ gem 'pry', group: [:development, :test]
 gem 'faker'
 gem 'sucker_punch', '~> 1.0'
 gem 'thin'
-
+gem 'kaminari'
