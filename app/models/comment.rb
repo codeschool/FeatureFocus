@@ -4,8 +4,6 @@ class Comment < ActiveRecord::Base
   belongs_to :message
   belongs_to :user
 
-  has_many :actions, as: :trackable
-
   delegate :project, to: :message
 
   scope :recent, -> { order(created_at: :desc).limit(5) }
